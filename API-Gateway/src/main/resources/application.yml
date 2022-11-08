@@ -1,0 +1,14 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: client
+          uri: http://localhost:8070
+          predicates:
+          - Path=/client/**
+        - id: product
+          uri: http://localhost:8090
+          predicates:
+          - Path=/product/**
